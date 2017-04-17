@@ -1,21 +1,23 @@
 import React, { Component } from 'react';
 import './App.css';
-import Menu from './Menu.js';
 import Header from './Header.js';
+import Menu from './Menu.js';
 import logo from '../img/palette.png';
 
 class App extends Component {
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      type: "explore"
+      type: "profile"
     };
+
+    this.handleSectionSelect = this.handleSectionSelect.bind(this);
   }
 
-  handleSectionSelect(newSection) {
+  handleSectionSelect(newType) {
     this.setState({
-      type: newSection
+      type: newType
     });
   }
 
@@ -23,7 +25,7 @@ class App extends Component {
     return (
       <div className="App">
         <img className="palette-logo" src={logo} alt="logo"/>
-        <Menu selectMethod={this.handleSectionSelect} type={this.state.type}/>
+        <Menu type={this.state.type} handler={this.handleSectionSelect}/>
         <Header type={this.state.type}/>
       </div>
     );

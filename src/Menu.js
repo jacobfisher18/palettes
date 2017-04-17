@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import './App.css';
-import MenuSection from './MenuSection.js';
+
+import explore from '../img/explore_medium.png';
+import profile from '../img/profile_medium.png';
+import create from '../img/create_medium.png';
 
 class Menu extends Component {
-
   constructor(props) {
     super(props);
     this.state = {
@@ -11,45 +13,25 @@ class Menu extends Component {
     };
   }
 
-  onSectionSelect(newSection) {
-    alert("test");
-    this.props.selectMethod(newSection);
-    if (newSection === 0) {
-      this.setState({type: "explore"});
-    }
-
-    else if (newSection === 1) {
-      this.setState({type: "profile"});
-    }
-
-    else if (newSection === 2) {
-      this.setState({type: "create"});
-    }
-
+  handleSectionSelect(type) {
+    this.props.handler(type);
   }
 
   render() {
-    var exploreSelected = false;
-    var profileSelected = false;
-    var createSelected = false;
-
-    if (this.state.type == "explore") {
-      exploreSelected = true;
-    }
-
-    else if (this.state.type == "profile") {
-      profileSelected = true;
-    }
-
-    else if (this.state.type == "create") {
-      createSelected = true;
-    }
-
     return (
-      <div className="Menu">
-        <MenuSection type="explore" selected={exploreSelected} onClick={this.onSectionSelect.bind(this, 0)}/>
-        <MenuSection type="profile" selected={profileSelected} onClick={this.onSectionSelect.bind(this, 1)}/>
-        <MenuSection type="create" selected={createSelected} onClick={this.onSectionSelect.bind(this, 2)}/>
+      <div className="menu">
+        <div className="MenuSection explore" onClick={this.handleSectionSelect.bind(this, "explore")}>
+          <img src={explore} alt="logo"/>
+          <p>explore</p>
+        </div>
+        <div className="MenuSection profile" onClick={this.handleSectionSelect.bind(this, "profile")}>
+          <img src={profile} alt="logo"/>
+          <p>profile</p>
+        </div>
+        <div className="MenuSection create" onClick={this.handleSectionSelect.bind(this, "create")}>
+          <img src={create} alt="logo"/>
+          <p>create</p>
+        </div>
       </div>
     );
   }

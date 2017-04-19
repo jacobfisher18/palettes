@@ -169,6 +169,15 @@
   display: inline-block;
 }
 
+.create-card {
+  position: relative;
+  width: 540px;
+  height: 260px;
+  margin: 40px auto 0 auto;
+  border: 2px solid #ECEFF1;
+  border-radius: 8px;
+}
+
 @media (max-width: 850px) {
   .logo {
     display: none;

@@ -11,25 +11,23 @@ class PaletteCard extends Component {
   }
 
   renderColors() {
-    return (
-      <div className="colors">
-          <div style={{backgroundColor: "maroon"}} />
-          <div style={{backgroundColor: "orange"}} />
-          <div style={{backgroundColor: "sunflower"}} />
-          <div style={{backgroundColor: "green"}} />
-          <div style={{backgroundColor: "teal"}} />
-          <div style={{backgroundColor: "violet"}} />
-      </div>
-    );
+    var colors = [];
+    for (var i = 0; i < this.props.data["colors"].length; i++) {
+      colors.push(<div style={{backgroundColor: this.props.data["colors"][i]}} />);
+    }
+
+    return colors;
   }
 
   render() {
     return (
       <div className="PaletteCard">
         <img className="palette-logo" src={palette} alt="logo"/>
-        <h3 className="palette-title">Summer Set</h3>
-        <p className="palette-author"><span className="by">by</span> jfish597 <span className="dateAndTime">11/23/17 11:49PM</span></p>
-        {this.renderColors()}
+        <h3 className="palette-title">{this.props.data["title"]}</h3>
+        <p className="palette-author"><span className="by">by</span> {this.props.data["author"]}<span className="dateAndTime">{this.props.data["date"]} {this.props.data["time"]}</span></p>
+        <div className="colors">
+          {this.renderColors()}
+        </div>
       </div>
     );
   }

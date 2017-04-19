@@ -21,11 +21,15 @@
   text-align: center;
 }
 
-.palette-logo {
+.logo {
   position: absolute;
   top: 35px;
   left: 60px;
   height: 60px;
+}
+
+.logo:hover {
+  cursor: pointer;
 }
 
 .menu {
@@ -41,7 +45,7 @@
 }
 
 .selected {
-  background-color: var(--main-light);
+  background-color: var(--main-dark);
 }
 
 .explore {
@@ -56,13 +60,6 @@
 .create {
   border-width: 0px 2px 2px 1px;
   border-radius: 0px 0px 8px 0px;
-}
-
-.selectedBar {
-  position: absolute;
-  height: 5px;
-  width: 177px;
-  background-color: #313C42;
 }
 
 .MenuSection img {
@@ -82,6 +79,10 @@
 .MenuSection:hover {
   background-color: var(--main-light);
   cursor: pointer;
+}
+
+.selected:hover {
+  background-color: var(--main-dark);
 }
 
 .Header {
@@ -113,8 +114,63 @@
   color: var(--main-medium);
 }
 
+.by {
+  color: var(--main-medium);
+}
+
+.dateAndTime {
+  color: var(--main-medium);
+  margin-left: 20px;
+}
+
+.PaletteCard {
+  position: relative;
+  width: 540px;
+  height: 260px;
+  margin: 40px auto 0 auto;
+  border: 2px solid #ECEFF1;
+  border-radius: 8px;
+}
+
+.palette-logo {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  height: 40px;
+}
+
+.palette-title {
+  font-size: 30px;
+  float: left;
+  margin-left: 50px;
+  margin-top: 30px;
+}
+
+.palette-author {
+  font-size: 20px;
+  float: left;
+  clear: both;
+  margin-left: 50px;
+}
+
+.colors {
+  float: left;
+  clear: both;
+  margin-left: 50px;
+}
+
+.colors div {
+  height: 50px;
+  width: 50px;
+  background-color: teal;
+  border-radius: 8px;
+  margin-right: 15px;
+  margin-top: 20px;
+  display: inline-block;
+}
+
 @media (max-width: 850px) {
-  .palette-logo {
+  .logo {
     display: none;
   }
 }

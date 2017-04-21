@@ -162,7 +162,7 @@
 .colors div {
   height: 50px;
   width: 50px;
-  background-color: teal;
+  background-color: var(--main-medium);
   border-radius: 8px;
   margin-right: 15px;
   margin-top: 20px;
@@ -172,10 +172,97 @@
 .create-card {
   position: relative;
   width: 540px;
-  height: 260px;
   margin: 40px auto 0 auto;
   border: 2px solid #ECEFF1;
   border-radius: 8px;
+  padding-bottom: 30px;
+}
+
+.create-form {
+  text-align: left;
+  color: var(--main-dark);
+}
+
+.create-form input {
+  color: var(--main-dark);
+  border: none;
+  border-bottom: 2px solid var(--main-medium);
+}
+
+.create-form input:focus {
+  outline: none;
+}
+
+.create-title {
+  font-size: 30px;
+  float: left;
+  margin-left: 50px;
+  margin-top: 30px;
+}
+
+.create-author {
+  font-size: 20px;
+  float: left;
+  clear: both;
+  margin-left: 50px;
+  margin-bottom: 20px;
+}
+
+.create-color {
+  margin-top: 15px;
+  width: 250px;
+  display: block;
+  height: 50px;
+  clear: both;
+  margin-left: 50px;
+  position: relative;
+}
+
+.create-colorbox {
+  height: 50px;
+  width: 50px;
+  background-color: var(--main-medium);
+  border-radius: 8px;
+}
+
+.create-colortext {
+  font-size: 20px;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  height: 50px;
+  line-height: 50px;
+}
+
+.create-color p {
+  position: absolute;
+  top: 0px;
+  right: -30px;
+  line-height: 50px;
+  font-size: 20px;
+  color: var(--main-medium);
+}
+
+.create-color p:hover {
+  color: var(--main-dark);
+  cursor: pointer;
+}
+
+.another-color {
+  height: 60px;
+  width: 200px;
+  border: 2px solid #ECEFF1;
+  border-radius: 8px;
+  margin: 0 auto;
+  margin-top: 30px;
+  text-align: center;
+  line-height: 60px;
+  color: var(--main-medium);
+}
+
+.another-color:hover {
+  background-color: var(--main-dark);
+  cursor: pointer;
 }
 
 @media (max-width: 850px) {

@@ -12,7 +12,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      type: "explore"
+      type: "create"
     };
 
     this.handleSectionSelect = this.handleSectionSelect.bind(this);

@@ -22,13 +22,21 @@ class Header extends Component {
     else if (this.props.type === "profile") {
       icon = profile;
       header_title = "Profile";
-      subtitle = "23 palettes, 138 colors [placeholder]";
+
+      var numPalettes = this.props.profilePalettes.length;
+      var numColors = 0;
+
+      for (var i = 0; i < numPalettes; i++) {
+        numColors += this.props.profilePalettes[i].colors.length;
+      }
+
+      subtitle = `${numPalettes} palettes, ${numColors} colors`;
     }
 
     else if (this.props.type === "create") {
       icon = create;
       header_title = "Create";
-      subtitle = "create a palette with as many colors as you want";
+      subtitle = "create a new palette";
     }
 
     return (

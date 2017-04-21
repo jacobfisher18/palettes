@@ -42,10 +42,10 @@ var profileData = [
     "date":"11/23/17",
     "time":"11:35PM",
     "colors": [
-      "#eee",
-      "#ccc",
-      "#222",
-      "#000"
+      "#EEEEEE",
+      "#CCCCCC",
+      "#222222",
+      "#000000"
     ]
   }
 ]
@@ -124,7 +124,7 @@ class App extends Component {
       <div className="App">
         <img className="logo" src={logo} alt="logo"/>
         <Menu type={this.state.type} handler={this.handleSectionSelect}/>
-        <Header type={this.state.type}/>
+        <Header type={this.state.type} profilePalettes={this.state.profilePalettes}/>
         {this.renderSection()}
       </div>
     );

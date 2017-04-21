@@ -4,14 +4,14 @@ import palette from '../img/palette_dark.png';
 import CreateColor from './CreateColor.js';
 
 function getRandColor() {
-	var possibleCharacters = ['0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F']
-	var color = "#"
+	var possibleCharacters = ['0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'];
+	var color = "#";
 	for (var i = 0; i < 6; i++) {
-		var randNum = Math.floor((Math.random() * 15) + 1)
-		color += possibleCharacters[randNum]
+		var randNum = Math.floor((Math.random() * 15) + 1);
+		color += possibleCharacters[randNum];
 	}
 
-	return color
+	return color;
 }
 
 class Create extends Component {
@@ -39,11 +39,16 @@ class Create extends Component {
   }
 
   renderColors() {
-    var colors = [];
 
-    for (var i = 0; i < this.state.colors.length; i++) {
-      colors.push( <CreateColor index={i} color={this.state.colors[i]} handleInputChange={this.handleInputChange} handleDeleteClick={this.handleDeleteClick}/> )
-    }
+    const colors = this.state.colors.map((color, index) =>
+      <CreateColor
+        index={index}
+        key={index}
+        color={color}
+        handleInputChange={this.handleInputChange}
+        handleDeleteClick={this.handleDeleteClick}
+      />
+    );
 
     return colors;
   }

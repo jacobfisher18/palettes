@@ -6,10 +6,12 @@ class Explore extends Component {
 
   renderPaletteCards() {
 
-    var cards = [];
-    for (var i = 0; i < this.props.paletteData.length; i++) {
-      cards.push(<PaletteCard data={this.props.paletteData[i]}/>);
-    }
+    const cards = this.props.paletteData.map((card, index) =>
+      <PaletteCard
+        key={index}
+        data={card}
+      />
+    );
 
     return cards;
   }

@@ -13,7 +13,11 @@ class PaletteCard extends Component {
   renderColors() {
     var colors = [];
     for (var i = 0; i < this.props.data["colors"].length; i++) {
-      colors.push(<div style={{backgroundColor: this.props.data["colors"][i]}} />);
+      colors.push(
+        <div style={{backgroundColor: this.props.data["colors"][i]}}>
+          <span className="color-tooltip">{this.props.data["colors"][i]}</span>
+        </div>
+      );
     }
 
     return colors;

@@ -17,6 +17,10 @@
   box-sizing: border-box;
 }
 
+body {
+  padding-bottom: 50px;
+}
+
 .App {
   text-align: center;
 }
@@ -160,6 +164,7 @@
 }
 
 .colors div {
+  position: relative;
   height: 50px;
   width: 50px;
   background-color: var(--main-medium);
@@ -167,6 +172,27 @@
   margin-right: 15px;
   margin-top: 20px;
   display: inline-block;
+}
+
+.colors div:hover .color-tooltip {
+  display: block;
+}
+
+.colors div:hover {
+  cursor: pointer;
+}
+
+.color-tooltip {
+  background-color: #fff;
+  display: none;
+  position: absolute;
+  top: -50px;
+  left: -30px;
+  border: 2px solid #ECEFF1;
+  padding: 5px 30px;
+  font-size: 13px;
+  border-radius: 8px;
+  color: var(--main-medium);
 }
 
 .create-card {
@@ -261,6 +287,31 @@
 }
 
 .another-color:hover {
+  background-color: var(--main-dark);
+  cursor: pointer;
+}
+
+.create-button-card {
+  position: relative;
+  width: 540px;
+  margin: 40px auto 0 auto;
+  border: 2px solid #ECEFF1;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.create-button {
+  height: 60px;
+  width: 200px;
+  border: 2px solid #ECEFF1;
+  border-radius: 8px;
+  margin: 0 auto;
+  text-align: center;
+  line-height: 60px;
+  color: var(--main-medium);
+}
+
+.create-button:hover {
   background-color: var(--main-dark);
   cursor: pointer;
 }

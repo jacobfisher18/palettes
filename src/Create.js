@@ -3,22 +3,37 @@ import './App.css';
 import palette from '../img/palette_dark.png';
 import CreateColor from './CreateColor.js';
 
+function getRandColor() {
+	var possibleCharacters = ['0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F']
+	var color = "#"
+	for (var i = 0; i < 6; i++) {
+		var randNum = Math.floor((Math.random() * 15) + 1)
+		color += possibleCharacters[randNum]
+	}
+
+	return color
+}
+
 class Create extends Component {
 
   constructor(props) {
     super(props);
 
+    var initialColors = [];
+
+    //generate five random colors
+    for (var i = 0; i < 3; i++) {
+      initialColors.push(getRandColor());
+    }
+
     this.state = {
-      colors: [
-        "#ABCDEF",
-        "#123456",
-        "#000000"
-      ]
+      colors: initialColors
     };
 
     this.handleAnotherClick = this.handleAnotherClick.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleDeleteClick = this.handleDeleteClick.bind(this);
+    this.handleCreateClick = this.handleCreateClick.bind(this);
   }
 
   renderColors() {
@@ -53,8 +68,16 @@ class Create extends Component {
 
   handleAnotherClick() {
     this.setState({
-      colors: this.state.colors.concat("#222222")
+      colors: this.state.colors.concat(getRandColor())
     });
+  }
+
+  handleCreateClick() {
+    //create palette based on this.state.colors
+    this.props.addPaletteToProfile(this.state.colors);
+
+    //to-do: redirect to profile section
+    this.props.redirectToProfile();
   }
 
   render() {
@@ -68,6 +91,9 @@ class Create extends Component {
             {this.renderColors()}
             <div className="another-color" onClick={this.handleAnotherClick}>add color</div>
           </form>
+        </div>
+        <div className="create-button-card">
+          <div className="create-button" onClick={this.handleCreateClick}>create palette</div>
         </div>
       </div>
     );

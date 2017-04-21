@@ -50,6 +50,8 @@ var profileData = [
   }
 ]
 
+var userData = "jfish0505";
+
 class App extends Component {
 
   constructor(props) {
@@ -57,7 +59,8 @@ class App extends Component {
     this.state = {
       type: "create",
       explorePalettes: exploreData,
-      profilePalettes: profileData
+      profilePalettes: profileData,
+      currentUser: userData
     };
 
     this.handleSectionSelect = this.handleSectionSelect.bind(this);
@@ -72,21 +75,19 @@ class App extends Component {
     });
   }
 
-  addPaletteToProfile(palette) {
-    console.log(palette);
-    console.log(this.state.profilePalettes);
+  addPaletteToProfile(palette, title) {
     //add palette to this.state.profilePalettes
     var mutable_palettes = this.state.profilePalettes;
 
-    //palette is currently an array; we need to construct a JSON object with the array is a value
-    var newPalette = {
-      "title":"Test",
-      "author":"Test",
-      "date":"11/11/11",
-      "time":"11:11AM"
-    }
+    var newPalette = {};
 
+    newPalette.title = title || "Untitled Palette";
+    newPalette.author = this.state.currentUser;
     newPalette.colors = palette;
+
+    var now = new Date();
+    newPalette.date = `${now.getMonth()}/${now.getDate()}/${now.getFullYear()}`;
+    newPalette.time = `${now.getHours() % 12 || 12}:${now.getMinutes()}${(now.getHours() >= 12) ? "PM" : "AM"}`;
 
     mutable_palettes.push(newPalette);
 

@@ -27,13 +27,15 @@ class Create extends Component {
     }
 
     this.state = {
-      colors: initialColors
+      colors: initialColors,
+      title: ""
     };
 
     this.handleAnotherClick = this.handleAnotherClick.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleDeleteClick = this.handleDeleteClick.bind(this);
     this.handleCreateClick = this.handleCreateClick.bind(this);
+    this.handleTitleChange = this.handleTitleChange.bind(this);
   }
 
   renderColors() {
@@ -56,6 +58,12 @@ class Create extends Component {
     }
   }
 
+  handleTitleChange(e) {
+    this.setState({
+      title: e.target.value
+    })
+  }
+
   handleDeleteClick(index) {
     if (this.state.colors.length > 1) {
       var mutable_colors = this.state.colors;
@@ -74,7 +82,7 @@ class Create extends Component {
 
   handleCreateClick() {
     //create palette based on this.state.colors
-    this.props.addPaletteToProfile(this.state.colors);
+    this.props.addPaletteToProfile(this.state.colors, this.state.title);
 
     //to-do: redirect to profile section
     this.props.redirectToProfile();
@@ -86,7 +94,7 @@ class Create extends Component {
         <div className="create-card">
           <img className="palette-logo" src={palette} alt="logo"/>
           <form className="create-form">
-            <input className="create-title" type="text" placeholder="Palette Name"></input>
+            <input className="create-title" type="text" placeholder="Palette Name" value={this.state.color} onChange={this.handleTitleChange}></input>
             <p className="create-author">by jfish597</p>
             {this.renderColors()}
             <div className="another-color" onClick={this.handleAnotherClick}>add color</div>
